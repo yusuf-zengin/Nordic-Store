@@ -1,11 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
-import About from '../components/About';
-import DogSection from '../components/DogSection';
-import Footer from '../components/Footer';
-import HeroSection from '../components/HeroSection/HeroSection';
-import Navbar from '../components/Navbar';
-import Slides from '../components/Slides';
+import { About, DogSection, Footer, HeroSection, Navbar, Slides } from '../components/imports';
 import { dogImages, productImages, viewImages } from '../images';
 
 
@@ -31,8 +26,8 @@ export function App() {
     <div className="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
       <Navbar />
       {slides.length > 0 && <Slides images={slides} />}
-      {products.length > 0 && <HeroSection products={products}/>}
-      {dogs.length > 0 && <DogSection images={dogs}/>}
+      {products.length > 0 && <HeroSection products={products} />}
+      {dogs.length > 0 && <DogSection images={dogs} />}
       <About />
       <Footer />
     </div>

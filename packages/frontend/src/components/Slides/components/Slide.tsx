@@ -18,7 +18,6 @@ const Slide = (props: any) => {
         default:
             break;
     }
-    console.log(index, prev, next)
 
     return (
         <div>
