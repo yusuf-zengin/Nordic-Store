@@ -1,15 +1,20 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.scss';
+import About from '../components/About';
+import Footer from '../components/Footer';
+import HeroSection from '../components/HeroSection/HeroSection';
+import Navbar from '../components/Navbar';
+import Slides from '../components/Slides';
 
-import NxWelcome from './nx-welcome';
 
 export function App() {
   return (
-    <>
-      <div className={'bg-black w-10 h-10'}></div>
-    
-      <div />
-    </>
+    <body className="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
+      <Navbar />
+      <Slides />
+      <HeroSection />
+      <About/>
+      <Footer />
+    </body>
   );
 }
 
