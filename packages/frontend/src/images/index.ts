@@ -9,7 +9,6 @@ export const viewImages = async () => {
     },
   });
 
-
   return response.data.results;
 };
 
@@ -22,6 +21,17 @@ export const productImages = async () => {
     },
   });
 
-
   return response.data.results;
+};
+
+export const dogImages = async () => {
+  const images: string[] = [];
+
+  for (let i = 0; i < 3; i++) {
+    const response = await axios.get('https://dog.ceo/api/breeds/image/random');
+
+    images.push(response.data.message);
+  }
+//   console.log(images)
+  return images;
 };
