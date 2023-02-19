@@ -12,7 +12,7 @@ export default function Slides(props: any) {
 
                     {images.map((img: {}, index: number) => {
                         return (
-                            <Slide key={`${index}slide`} image={img} index={index} />
+                            <Slide key={`${index}slide`} image={img} index={index} imagesLength={images.length}/>
                         )
                     })}
 

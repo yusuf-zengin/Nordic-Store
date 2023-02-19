@@ -4,7 +4,7 @@ export const viewImages = async () => {
   const response = await axios.get('https://api.unsplash.com/search/photos', {
     params: {
       query: 'view',
-      per_page: 10,
+      per_page: 3,
       client_id: '27CzhmfJukpuBav0LqSFuZsgVxc9X5XtORKfv1JrkAQ',
     },
   });
@@ -25,7 +25,7 @@ export const productImages = async () => {
 };
 
 export const dogImages = async () => {
-  const images: string[] = [];
+  const images = [];
 
   for (let i = 0; i < 3; i++) {
     const response = await axios.get('https://dog.ceo/api/breeds/image/random');
@@ -35,3 +35,20 @@ export const dogImages = async () => {
 
   return images;
 };
+
+onmessage = async function (event) {
+  if (event.data === 'getSlidesImages') {
+    const images = await viewImages();
+
+    this.postMessage(images);
+  } else if (event.data === 'getProductsImages') {
+    const images = await productImages();
+
+    this.postMessage(images);
+  } else if (event.data === 'getDogsImages') {
+    const images = await dogImages();
+
+    this.postMessage(images);
+  }
+};
+

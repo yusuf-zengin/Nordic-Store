@@ -1,23 +1,24 @@
 const Slide = (props: any) => {
-    const { image, index } = props;
+    const { image, index, imagesLength } = props;
+
     let prev: number;
     let next: number;
-    switch (index) {
-        case 0:
-            prev = 3;
-            next = 2;
-            break;
-        case 1:
-            prev = 1;
-            next = 3;
-            break;
-        case 2:
-            prev = 2;
-            next = 1;
-            break;
-        default:
-            break;
+
+    function calculatePrevNextIndex(currentIndex: number, maxIndex: number) {
+        prev = (currentIndex - 1) % maxIndex;
+        next = (currentIndex + 1) % maxIndex;
+
+        if (prev === 0) {
+            prev = maxIndex;
+        } 
+        if (next === 0) {
+            next = maxIndex;
+        }
     }
+
+    calculatePrevNextIndex(index + 1, imagesLength)
+
+    console.log(index, imagesLength, prev, next)
 
     return (
         <div>

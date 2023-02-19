@@ -9,9 +9,18 @@ export function App() {
   const [products, setProducts] = React.useState([]);
   const [slides, setSlides] = React.useState([]);
 
-
   React.useEffect(() => {
     (async () => {
+      // const worker = new Worker('../../public/myWorker.js');
+      // worker.onmessage = function (event) {
+      //   setSlides(event.data);
+      // };
+
+      // worker.postMessage('getSlidesImages');
+
+      // return () => {
+      //   worker.terminate();
+      // };
       const response: any = await dogImages();
       setDogs(response);
 
