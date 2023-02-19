@@ -1,7 +1,4 @@
-// const axios = require('axios');
-
 const viewImages = async () => {
-  
   const url = new URL('https://api.unsplash.com/search/photos');
   const params = {
     query: 'view',
@@ -9,23 +6,22 @@ const viewImages = async () => {
     client_id: '27CzhmfJukpuBav0LqSFuZsgVxc9X5XtORKfv1JrkAQ',
   };
   url.search = new URLSearchParams(params);
-  
+
   const response = await fetch(url);
-  
+
   if (response.ok) {
     const data = await response.json();
     return data.results;
   } else {
     throw new Error(`API request failed with status ${response.status}`);
   }
-
 };
 
 const productImages = async () => {
   const url = new URL('https://api.unsplash.com/search/photos');
   const params = {
     query: 'product',
-    per_page: 8,
+    per_page: 28,
     client_id: '27CzhmfJukpuBav0LqSFuZsgVxc9X5XtORKfv1JrkAQ',
   };
   url.search = new URLSearchParams(params);
@@ -57,23 +53,18 @@ const dogImages = async () => {
   return images;
 };
 
-
 onmessage = async function (event) {
   if (event.data === 'getSlidesImages') {
     const images = await viewImages();
 
-    this.postMessage({content: "view", data: images});
+    this.postMessage({ content: 'view', data: images });
   } else if (event.data === 'getProductsImages') {
     const images = await productImages();
 
-    this.postMessage({content: "product", data: images});
+    this.postMessage({ content: 'product', data: images });
   } else if (event.data === 'getDogsImages') {
     const images = await dogImages();
 
-    this.postMessage({content: "dog", data: images});
+    this.postMessage({ content: 'dog', data: images });
   }
 };
-
-// module.exports = {
-//   onmessage
-// }
