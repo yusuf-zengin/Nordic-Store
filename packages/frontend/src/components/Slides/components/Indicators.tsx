@@ -9,14 +9,13 @@ const Indicator = (props: { index: number }) => {
 
 const Indicators = (props: { imagesLength: number }) => {
     const { imagesLength } = props;
-    console.log(imagesLength)
+
     const indicators = [];
     
     for (let i = 1; i <= imagesLength; i++) {
         indicators.push(<Indicator key={i} index={i} />);
     }
     
-    console.log(indicators)
     return (
         <ol className="carousel-indicators">
             {indicators}

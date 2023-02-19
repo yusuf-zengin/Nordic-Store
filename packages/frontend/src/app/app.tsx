@@ -3,6 +3,7 @@ import React from 'react';
 import { About, DogSection, Footer, HeroSection, Navbar, Slides } from '../components/imports';
 import { dogImages, productImages, viewImages } from '../images';
 
+const worker = new Worker('../myWorker.js');
 
 export function App() {
   const [dogs, setDogs] = React.useState([]);
@@ -11,25 +12,26 @@ export function App() {
 
   React.useEffect(() => {
     (async () => {
-      // const worker = new Worker('../../public/myWorker.js');
-      // worker.onmessage = function (event) {
-      //   setSlides(event.data);
-      // };
+      worker.onmessage = function ({ data }) {
+        const setterMap: any = {
+          "view": setSlides,
+          "product": setProducts,
+          "dog": setDogs,
+        };
 
-      // worker.postMessage('getSlidesImages');
+        const setter = setterMap[data.content] || (() => { });
 
-      // return () => {
-      //   worker.terminate();
-      // };
-      const response: any = await dogImages();
-      setDogs(response);
+        setter(data.data);
+      };
 
-      const response2 = await productImages();
-      setProducts(response2);
-
-      const response3 = await viewImages();
-      setSlides(response3);
+      return () => worker.terminate();
     })()
+  }, [])
+
+  React.useEffect(() => {
+    worker.postMessage('getSlidesImages');
+    worker.postMessage('getProductsImages');
+    worker.postMessage('getDogsImages');
   }, [])
 
   return (
