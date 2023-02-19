@@ -5,7 +5,7 @@ const viewImages = async () => {
   const url = new URL('https://api.unsplash.com/search/photos');
   const params = {
     query: 'view',
-    per_page: 3,
+    per_page: 20,
     client_id: '27CzhmfJukpuBav0LqSFuZsgVxc9X5XtORKfv1JrkAQ',
   };
   url.search = new URLSearchParams(params);
