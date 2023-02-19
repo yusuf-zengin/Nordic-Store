@@ -2,7 +2,7 @@ export const SquareView = (props: any) => {
     const { images } = props;
 
     return (
-        <div className='w-10/12  xl:w-4/6 h-[800px] flex gap-2 '>
+        <div className='w-full h-[800px] flex gap-2 '>
             <div className='w-2/3 h-full flex flex-col gap-2'>
                 <div className='h-2/3 w-full flex flex-row gap-2'>
                     <div className='bg-no-repeat bg-cover bg-center h-full w-1/2' style={{ backgroundImage: `url(${images[0]})` }} />

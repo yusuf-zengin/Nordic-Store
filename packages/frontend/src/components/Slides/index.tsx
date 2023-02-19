@@ -8,7 +8,7 @@ export default function Slides(props: any) {
     return (
         <div className="carousel relative container mx-auto" style={{ maxWidth: "1600px" }}>
             {images.length > 0 ?
-                <div className="carousel-inner relative overflow-hidden w-full">
+                <div className="carousel-inner relative overflow-hidden w-full max-h-[800px]">
 
                     {images.map((img: {}, index: number) => {
                         return (

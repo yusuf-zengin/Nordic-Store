@@ -10,13 +10,13 @@ const DogSection = (props: any) => {
 
         images.length > 0 ?
             <div className="w-full flex justify-center items-center ">
-                <div className='w-full flex justify-center items-center hidden md:flex lg:w-5/6'>
+                <div className='w-full flex justify-center items-center hidden md:flex w-11/12 max-w-[1600px] '>
                     <SquareView images={images} />
                 </div>
-                <div className='w-full justify-center items-center hidden xs:flex md:hidden lg:w-5/6'>
+                <div className='w-full justify-center items-center hidden sm:flex md:hidden sm:w-full '>
                     <RectangleView images={images} />
                 </div>
-                <div className='w-full flex justify-center items-center xs:hidden lg:w-5/6'>
+                <div className='w-full flex justify-center items-center sm:hidden ss:w-2/3 min-w-[300px]'>
                     <VerticalView images={images} />
                 </div>
             </div>

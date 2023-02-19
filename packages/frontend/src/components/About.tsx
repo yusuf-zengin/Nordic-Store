@@ -2,9 +2,9 @@ import React from 'react'
 
 const About = () => {
     return (
-        <section className="bg-white py-8 sm:px-16">
+        <section className="bg-white py-8 sm:px-16 ">
 
-            <div className="container py-8 px-6 mx-auto">
+            <div className="container py-8 px-6 mx-auto max-w-[1600px]">
 
                 <a className="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl mb-8" href="#">
                     About
