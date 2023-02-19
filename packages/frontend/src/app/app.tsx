@@ -13,21 +13,22 @@ export function App() {
   React.useEffect(() => {
     (async () => {
       const response: any = await dogImages();
-      const response2 = await productImages();
-      const response3 = await viewImages();
+      setDogs(response);
 
-      setSlides(response3)
-      setProducts(response2)
-      setDogs(response)
+      const response2 = await productImages();
+      setProducts(response2);
+
+      const response3 = await viewImages();
+      setSlides(response3);
     })()
   }, [])
 
   return (
     <div className="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
       <Navbar />
-      {slides.length > 0 && <Slides images={slides} />}
-      {products.length > 0 && <HeroSection products={products} />}
-      {dogs.length > 0 && <DogSection images={dogs} />}
+      <Slides images={slides} />
+      <HeroSection products={products} />
+      <DogSection images={dogs} />
       <About />
       <Footer />
     </div>
