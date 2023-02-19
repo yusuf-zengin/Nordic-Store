@@ -8,7 +8,7 @@ const Product = (props: any) => {
     const randomInt = Math.floor(Math.random() * (max - min + 1)) + min;
 
     return (
-        <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+        <div className="w-full xs:w-full ss:w-2/3 md:w-1/3 xl:w-1/4 p-6 flex flex-col">
             <a href="#">
                 <img className="hover:grow hover:shadow-lg w-full h-60" src={`${product.urls.small}`} />
                 <div className="pt-3 flex items-center justify-between">
