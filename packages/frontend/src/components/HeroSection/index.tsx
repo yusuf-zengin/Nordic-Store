@@ -8,7 +8,7 @@ export default function HeroSection(props: any) {
 
   return (
     <section className="bg-white py-8">
-      <div className="container mx-auto flex items-center flex-wrap pt-4 pb-12 w-full justify-center">
+      <div className="container mx-auto flex items-center flex-wrap pt-4 pb-12 w-full justify-start">
         {products.length > 0 ?
           <>
             <HeroHeader />
@@ -19,7 +19,9 @@ export default function HeroSection(props: any) {
                 )
               })}
           </>
-          : <Loading />
+          : <div className="w-full flex justify-center items-center">
+            <Loading />
+          </div>
         }
       </div>
     </section>

@@ -25,7 +25,7 @@ const Slide = (props: any) => {
                 <div className="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style={{ backgroundImage: `url(${image.urls.full})` }}>
                     <div className="container mx-auto">
                         <div className="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
-                            <p className="text-black text-2xl my-4 whitespace-nowrap truncate w-[500px]">{image.description}</p>
+                            <p className="text-black text-2xl my-4 whitespace-nowrap truncate w-[500px] xs:w-[200px] ss:w-[300px] sm:w-[400px] ">{image.description}</p>
                             <a className="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black" href="#">view product</a>
                         </div>
                     </div>

@@ -1,9 +1,7 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
 import { About, DogSection, Footer, HeroSection, Navbar, Slides } from '../components/imports';
-import { dogImages, productImages, viewImages } from '../images';
 
-const worker = new Worker('../myWorker.js');
+const worker = new Worker(new URL('./web-worker', import.meta.url));
 
 export function App() {
   const [dogs, setDogs] = React.useState([]);
@@ -29,9 +27,11 @@ export function App() {
   }, [])
 
   React.useEffect(() => {
-    worker.postMessage('getSlidesImages');
-    worker.postMessage('getProductsImages');
-    worker.postMessage('getDogsImages');
+    (async () => {
+      await worker.postMessage('getSlidesImages');
+      await worker.postMessage('getProductsImages');
+      await worker.postMessage('getDogsImages');
+    })()
   }, [])
 
   return (
