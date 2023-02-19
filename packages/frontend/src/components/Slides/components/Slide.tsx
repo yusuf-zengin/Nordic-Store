@@ -18,8 +18,6 @@ const Slide = (props: any) => {
 
     calculatePrevNextIndex(index + 1, imagesLength)
 
-    console.log(index, imagesLength, prev, next)
-
     return (
         <div>
             <input className="carousel-open" type="radio" id={`carousel-${index + 1}`} name="carousel" aria-hidden="true" defaultChecked={index === 0} hidden />

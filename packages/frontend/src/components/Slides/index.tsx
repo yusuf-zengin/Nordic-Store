@@ -16,7 +16,7 @@ export default function Slides(props: any) {
                         )
                     })}
 
-                    <Indicators />
+                    <Indicators imagesLength={images.length} />
 
                 </div> : <Loading />
             }
