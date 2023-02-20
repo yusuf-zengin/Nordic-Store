@@ -1,36 +1,24 @@
 const viewImages = async () => {
-  const url = new URL('https://api.unsplash.com/search/photos');
-  const params = {
-    query: 'view',
-    per_page: 20,
-    client_id: '27CzhmfJukpuBav0LqSFuZsgVxc9X5XtORKfv1JrkAQ',
-  };
-  url.search = new URLSearchParams(params);
+  const url = new URL('http://localhost:3000/get-slider-images');
 
   const response = await fetch(url);
 
   if (response.ok) {
     const data = await response.json();
-    return data.results;
+    return data;
   } else {
     throw new Error(`API request failed with status ${response.status}`);
   }
 };
 
 const productImages = async () => {
-  const url = new URL('https://api.unsplash.com/search/photos');
-  const params = {
-    query: 'product',
-    per_page: 28,
-    client_id: '27CzhmfJukpuBav0LqSFuZsgVxc9X5XtORKfv1JrkAQ',
-  };
-  url.search = new URLSearchParams(params);
+  const url = new URL('http://localhost:3000/get-product-images');
 
   const response = await fetch(url);
 
   if (response.ok) {
     const data = await response.json();
-    return data.results;
+    return data;
   } else {
     throw new Error(`API request failed with status ${response.status}`);
   }

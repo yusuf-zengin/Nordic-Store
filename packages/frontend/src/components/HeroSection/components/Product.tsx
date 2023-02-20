@@ -10,7 +10,7 @@ const Product = (props: any) => {
     return (
         <div className="w-full xs:w-full sm:w-1/3 md:w-1/3 lg:w-1/4 xl:w-1/6 p-6 flex flex-col">
             <a href="#">
-                <img className="hover:grow hover:shadow-lg w-full h-60" src={`${product.urls.small}`} />
+                <img className="hover:grow hover:shadow-lg w-full h-60" src={`${product.image.small}`} />
                 <div className="pt-3 flex items-center justify-between">
                     <p className="truncate">{product.description}</p>
                     <svg className="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
