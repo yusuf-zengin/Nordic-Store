@@ -1,14 +1,13 @@
+import {config} from 'dotenv';
+config({path: `${__dirname}/.env`});
+
 import koa from 'koa';
 import serve from 'koa-static';
 import Router from 'koa-router';
-import path from 'path';
 import UnsplashCommunicator from './UnsplashCommunicator';
-import dotenv from 'dotenv';
-dotenv.config();
+import { STATIC_PATH } from './Constants';
 
-const host = process.env.HOST ?? 'localhost';
 const port = process.env.PORT ? Number(process.env.PORT) : 3000;
-const staticPath = path.join(__dirname, '..', 'frontend');
 
 const app = new koa();
 const router = new Router();
@@ -23,7 +22,7 @@ if (process.env.LOCAL_FRONTEND_URL) {
   });
 }
 
-app.use(serve(staticPath));
+app.use(serve(STATIC_PATH));
 
 router.get('/get-slider-images', async (ctx) => {
   try {
@@ -45,6 +44,6 @@ router.get('/get-product-images', async (ctx) => {
 
 app.use(router.routes());
 
-app.listen(port, host, () => {
-  console.log(`[ ready ] http://${host}:${port}`);
+app.listen(port, () => {
+  console.log(`listening on port: ${port}`);
 });

@@ -9,5 +9,7 @@ cd Nordic-Store
 git checkout feature/demo-app
 yarn
 yarn nx run-many --target=build --all
+echo "UNSPLASH_CLIENT_ID=<your unsplas client_id>" >> dist/packages/server/.env
 node dist/packages/server/main.js
 ```
+
