@@ -10,6 +10,7 @@ git checkout feature/demo-app
 yarn
 yarn nx run-many --target=build --all
 echo "UNSPLASH_CLIENT_ID=<your unsplas client_id>" >> dist/packages/server/.env
+echo "LOCAL_FRONTEND_URL=http://localhost:4200" >> dist/packages/server/.env # [ OPTIONAL ] to allow live server cors
 node dist/packages/server/main.js
 ```
 
