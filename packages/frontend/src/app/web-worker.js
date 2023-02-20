@@ -1,24 +1,38 @@
+const DEV_SERVER_URL = 'http://localhost:3000';
+
+const isDev = process.env.NODE_ENV === 'development';
+const host = isDev ? DEV_SERVER_URL : self.origin;
+
 const viewImages = async () => {
-  const url = new URL('http://localhost:3000/get-slider-images');
+  const url = new URL(`${host}/get-slider-images`);
 
   const response = await fetch(url);
 
   if (response.ok) {
-    const data = await response.json();
-    return data;
+    const result = await response.json();
+    if (result.status === 'error') {
+      console.log(result);
+      return [];
+    }
+
+    return result.data;
   } else {
     throw new Error(`API request failed with status ${response.status}`);
   }
 };
 
 const productImages = async () => {
-  const url = new URL('http://localhost:3000/get-product-images');
+  const url = new URL(`${host}/get-product-images`);
 
   const response = await fetch(url);
+  if (result.status === 'error') {
+    console.log(result);
+    return [];
+  }
 
   if (response.ok) {
-    const data = await response.json();
-    return data;
+    const result = await response.json();
+    return result.data;
   } else {
     throw new Error(`API request failed with status ${response.status}`);
   }

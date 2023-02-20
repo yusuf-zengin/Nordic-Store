@@ -26,13 +26,21 @@ if (process.env.LOCAL_FRONTEND_URL) {
 app.use(serve(staticPath));
 
 router.get('/get-slider-images', async (ctx) => {
-  const images = await unsplashCommunicator.fetchViewImages();
-  ctx.body = images;
+  try {
+    const images = await unsplashCommunicator.fetchViewImages();
+    ctx.body = { status: 'success', data: images };
+  } catch (error) {
+    ctx.body = { status: 'error', message: error.message };
+  }
 });
 
 router.get('/get-product-images', async (ctx) => {
-  const images = await unsplashCommunicator.fetchProductImages();
-  ctx.body = images;
+  try {
+    const images = await unsplashCommunicator.fetchProductImages();
+    ctx.body = { status: 'success', data: images };
+  } catch (error) {
+    ctx.body = { status: 'error', message: error.message };
+  }
 });
 
 app.use(router.routes());
