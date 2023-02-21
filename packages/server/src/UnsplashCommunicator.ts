@@ -2,7 +2,7 @@ import axios from 'axios';
 import { UNSPLASH_PHOTOS_API } from './Constants';
 
 export default class {
-  fetchViewImages = async (amountOfImages: number = 20) => {
+  fetchViewImages = async (amountOfImages: number) => {
     const params = {
       params: {
         query: 'view',
@@ -25,7 +25,7 @@ export default class {
     }
   };
 
-  fetchProductImages = async (amountOfImages: number = 28) => {
+  fetchProductImages = async (amountOfImages: number) => {
     const params = {
       params: {
         query: 'product',

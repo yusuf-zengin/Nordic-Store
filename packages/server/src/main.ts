@@ -9,6 +9,9 @@ import { STATIC_PATH } from './Constants';
 
 const port = process.env.PORT ? Number(process.env.PORT) : 3000;
 
+let AMOUNT_OF_SLIDER_IMAGES = 20;
+let AMOUNT_OF_PRODUCT_IMAGES = 28;
+
 const app = new koa();
 const router = new Router();
 const unsplashCommunicator = new UnsplashCommunicator();
@@ -26,7 +29,7 @@ app.use(serve(STATIC_PATH));
 
 router.get('/get-slider-images', async (ctx) => {
   try {
-    const images = await unsplashCommunicator.fetchViewImages();
+    const images = await unsplashCommunicator.fetchViewImages(AMOUNT_OF_SLIDER_IMAGES);
     ctx.body = { status: 'success', data: images };
   } catch (error) {
     ctx.body = { status: 'error', message: error.message };
@@ -35,7 +38,7 @@ router.get('/get-slider-images', async (ctx) => {
 
 router.get('/get-product-images', async (ctx) => {
   try {
-    const images = await unsplashCommunicator.fetchProductImages();
+    const images = await unsplashCommunicator.fetchProductImages(AMOUNT_OF_PRODUCT_IMAGES);
     ctx.body = { status: 'success', data: images };
   } catch (error) {
     ctx.body = { status: 'error', message: error.message };
